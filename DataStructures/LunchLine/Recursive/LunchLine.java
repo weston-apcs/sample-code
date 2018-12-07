@@ -65,4 +65,17 @@ public class LunchLine {
     return this.rest.cutInLine(addme, aheadOf);
   }
 
+  // merges two LunchLines by alternatively taking members from each existing line and returning the new line
+  public LunchLine mergeLines(LunchLine other) {
+    if (this.rest == null)
+      return new LunchLine(this.first, other);
+    else if (other.rest == null)
+      return new LunchLine(other.first, this);
+    return new LunchLine(this.first, new LunchLine(
+        other.first,
+        this.rest.mergeLines(other.rest)
+      )
+    );
+  }
 }
+

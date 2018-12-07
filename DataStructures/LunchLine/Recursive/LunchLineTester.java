@@ -20,5 +20,7 @@ public class LunchLineTester {
     a = a.cutInLine("Bar", "Quux");
     a.printLineMembers();
     System.out.println(a.countLineLength());
+    a = a.mergeLines(b);
+    a.printLineMembers();
   }
 }
